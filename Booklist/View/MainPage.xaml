@@ -7,6 +7,78 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid Background="#17171a" Height="35" VerticalAlignment="Top">
+            <Border BorderBrush="#333" BorderThickness="0 1"/>
+            <Grid Margin="100 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBlock Foreground="White" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBlock Foreground="White" Text="Author" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <TextBlock Foreground="White" Text="Date" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <TextBlock Foreground="White" Text="Mark" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                </Grid>
+                <Grid Grid.Column="4">
+                    <TextBlock Foreground="White" Text="Pages" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <ListView ItemsSource="{Binding Books}" Background="Transparent" BorderThickness="0" Margin="0 35 0 0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid  Margin="100 0">
+                        <Border BorderThickness="0 0 0 1" BorderBrush="#333"/>
+                        <Grid  Margin="0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <StackPanel Orientation="Vertical" Margin="10 0 0 0">
+                                    <Border Background="Gray" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
+                                        <TextBlock Foreground="White" Text="{Binding Path=Name}"/>
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <StackPanel Orientation="Vertical" Margin="10 0 0 0">
+                                    <Border Background="Gray" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
+                                        <TextBlock Foreground="White" Text="{Binding Path=Author}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <TextBlock Foreground="Black" Text="{Binding Path=Date}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <TextBlock Foreground="Black" Text="{Binding Path=Mark}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                            </Grid>
+                            <Grid Grid.Column="4">
+                                <TextBlock Foreground="Black" Text="{Binding Path=Pages}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
     </Grid>
 </UserControl>

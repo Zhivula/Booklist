@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ZhiMoney.Model
+namespace Booklist.Model
 {
     public class DelegateCommand : ICommand
     {

@@ -3,10 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Booklist"
         mc:Ignorable="d"
-        Title="Booklist. Vladislav Zhivula" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Booklist. Vladislav Zhivula" 
+        Height="450"
+        Width="800"         
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+    <Border Background="#222531" CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" MouseDown="OnMouseLeftButtonDown">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock Text="Booklist.Vladislav Zhivula" Foreground="White" FontSize="16" Margin="20 0 0 0"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border Background="White" CornerRadius="10">
+                        <Button Background="Transparent" BorderThickness="0" Padding="10 0 10 0"  Command="{Binding AddBook}">
+                            <materialDesign:PackIcon Kind="Plus" Foreground="#222531" Height="30" Width="30"/>
+                        </Button>
+                    </Border>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right">
+                    <Button HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Margin="0 10 10 0" Command="{Binding CloseWindow}">
+                        <materialDesign:PackIcon Kind="Close" Foreground="White" Height="30" Width="30"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1" x:Name="ChangedGrid">
+
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

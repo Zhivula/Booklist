@@ -1,7 +1,6 @@
-﻿using Booklist.DataBase;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
-namespace ZhiMoney.DataBase
+namespace Booklist.DataBase
 {
     class MyDbContext : DbContext
     {
