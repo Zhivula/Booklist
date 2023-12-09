@@ -1,29 +1,29 @@
 ﻿using Booklist.Model;
-using Booklist.View;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Booklist
+namespace Booklist.ViewModel
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+   public class MainWindowViewModel : INotifyPropertyChanged
     {
-        public MainWindow()
+        public MainWindowViewModel()
         {
-            InitializeComponent();
-            ChangedGrid.Children.Add(new MainPage());
-        }
-        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
+
         }
         public ICommand CloseWindow => new DelegateCommand(o =>
         {
-            this.Close();
+            var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            window.Close();
+        });
+        public ICommand AddBook => new DelegateCommand(o =>
+        {
+            MessageBox.Show("afdadsfasfd");
         });
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
