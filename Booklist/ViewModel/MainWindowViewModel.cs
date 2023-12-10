@@ -1,10 +1,7 @@
 ﻿using Booklist.Model;
-using System;
-using System.Collections.Generic;
+using Booklist.View;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -23,7 +20,8 @@ namespace Booklist.ViewModel
         });
         public ICommand AddBook => new DelegateCommand(o =>
         {
-            MessageBox.Show("afdadsfasfd");
+            var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            window.ChangedGrid.Children.Add(new AddBookView());
         });
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

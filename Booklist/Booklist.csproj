@@ -74,12 +74,21 @@
     <Compile Include="DataBase\Book.cs" />
     <Compile Include="DataBase\MyDbContext.cs" />
     <Compile Include="Data\DelegateCommand.cs" />
+    <Compile Include="Model\AddBookModel.cs" />
     <Compile Include="Model\MainPageModel.cs" />
+    <Compile Include="ViewModel\AddBookViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\AddBookView.xaml.cs">
+      <DependentUpon>AddBookView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AddBookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -126,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resourses\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\19286.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
