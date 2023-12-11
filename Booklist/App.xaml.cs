@@ -11,17 +11,6 @@ namespace Booklist
     {
         public App()
         {
-            using (var context = new MyDbContext())
-            {
-                context.Books.Add(new Book() {
-                    Name = "Разумный инвестор",
-                    Author = "Бенджамин Грэм",
-                    Date = DateTime.Now,
-                    Mark = 10,
-                    Pages = 567
-                });
-                context.SaveChanges();
-            }
         }
     }
 }

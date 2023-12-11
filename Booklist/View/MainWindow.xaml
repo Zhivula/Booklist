@@ -7,8 +7,8 @@
         xmlns:local="clr-namespace:Booklist"
         mc:Ignorable="d"
         Title="Booklist. Vladislav Zhivula" 
-        Height="450"
-        Width="800"         
+        Height="600"
+        Width="1100"         
         WindowStyle="None"
         ResizeMode="CanResize"
         Background="Transparent"
@@ -20,23 +20,30 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" MouseDown="OnMouseLeftButtonDown">
-                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBlock Text="Booklist.Vladislav Zhivula" Foreground="White" FontSize="16" Margin="20 0 0 0"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Border Background="White" CornerRadius="10">
-                        <Button Background="Transparent" BorderThickness="0" Padding="10 0 10 0"  Command="{Binding AddBook}">
-                            <materialDesign:PackIcon Kind="Plus" Foreground="#222531" Height="30" Width="30"/>
+            <Border BorderBrush="White" BorderThickness="0 0 0 2">
+                <Grid Grid.Row="0" MouseDown="OnMouseLeftButtonDown">
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock Text="Booklist.Vladislav Zhivula" Foreground="White" FontSize="16" Margin="20 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Border Background="White" CornerRadius="10">
+                            <Button Background="Transparent" BorderThickness="0" Padding="10 0 10 0"  Command="{Binding AddBook}">
+                                <materialDesign:PackIcon Kind="Plus" Foreground="#222531" Height="30" Width="30"/>
+                            </Button>
+                        </Border>
+                        <Border Background="White" CornerRadius="10" Margin="10 0 0 0">
+                            <Button Background="Transparent" BorderThickness="0" Padding="10 0 10 0"  Command="{Binding Statistics}">
+                                <materialDesign:PackIcon Kind="ChartBar" Foreground="#222531" Height="30" Width="30"/>
+                            </Button>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right">
+                        <Button HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Margin="0 10 10 0" Command="{Binding CloseWindow}">
+                            <materialDesign:PackIcon Kind="Close" Foreground="White" Height="30" Width="30"/>
                         </Button>
-                    </Border>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right">
-                    <Button HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Margin="0 10 10 0" Command="{Binding CloseWindow}">
-                        <materialDesign:PackIcon Kind="Close" Foreground="White" Height="30" Width="30"/>
-                    </Button>
-                </StackPanel>
-            </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
             <Grid Grid.Row="1" x:Name="ChangedGrid">
 
             </Grid>

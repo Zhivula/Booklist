@@ -1,4 +1,5 @@
-﻿using Booklist.DataBase;
+﻿using Booklist.Data;
+using Booklist.DataBase;
 using Booklist.Model;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,8 @@ namespace Booklist.ViewModel
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
-        private List<Book> books;
-        public List<Book> Books
+        private List<BookFilter> books;
+        public List<BookFilter> Books
         {
             get => books;
             set
@@ -25,8 +26,23 @@ namespace Booklist.ViewModel
         }
         public MainPageViewModel()
         {
-            var mainPageModel = new MainPageModel();
-            Books = mainPageModel.ListMainPage;
+            Books = GetListBookFilter();
+        }
+        private List<BookFilter> GetListBookFilter()
+        {
+            var filterList = new List<BookFilter>();
+            foreach (var i in new MainPageModel().ListMainPage)
+            {
+                filterList.Add(new BookFilter() {
+                    Author = i.Author,
+                    Pages = i.Pages,
+                    Name = i.Name,
+                    Mark = i.Mark,
+                    Date = i.Date.ToShortDateString(),
+                    PathPhoto = i.PathPhoto
+                });
+            }
+            return filterList;
         }
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

@@ -73,6 +73,7 @@
     </ApplicationDefinition>
     <Compile Include="DataBase\Book.cs" />
     <Compile Include="DataBase\MyDbContext.cs" />
+    <Compile Include="Data\BookFilter.cs" />
     <Compile Include="Data\DelegateCommand.cs" />
     <Compile Include="Model\AddBookModel.cs" />
     <Compile Include="Model\MainPageModel.cs" />
