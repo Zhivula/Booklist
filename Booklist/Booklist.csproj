@@ -77,14 +77,19 @@
     <Compile Include="Data\DelegateCommand.cs" />
     <Compile Include="Model\AddBookModel.cs" />
     <Compile Include="Model\MainPageModel.cs" />
+    <Compile Include="Model\StatisticsModel.cs" />
     <Compile Include="ViewModel\AddBookViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\StatisticsViewModel.cs" />
     <Compile Include="View\AddBookView.xaml.cs">
       <DependentUpon>AddBookView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StatisticsView.xaml.cs">
+      <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddBookView.xaml">
       <SubType>Designer</SubType>
@@ -103,6 +108,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StatisticsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

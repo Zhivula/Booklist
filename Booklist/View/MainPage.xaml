@@ -57,7 +57,7 @@
                             </Grid>
                             <WrapPanel Grid.Column="1" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Border Background="Gray" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
-                                    <TextBlock Foreground="White" Text="{Binding Path=Name}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock Foreground="White" TextWrapping="Wrap" Text="{Binding Path=Name}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </WrapPanel>
                             <WrapPanel Grid.Column="2" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">

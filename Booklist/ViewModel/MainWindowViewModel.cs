@@ -23,6 +23,11 @@ namespace Booklist.ViewModel
             var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             window.ChangedGrid.Children.Add(new AddBookView());
         });
+        public ICommand Statistics => new DelegateCommand(o =>
+        {
+            var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            window.ChangedGrid.Children.Add(new StatisticsView());
+        });
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name)
