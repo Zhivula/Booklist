@@ -4,29 +4,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Booklist.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#222531">
+    <Grid Background="{DynamicResource BackgroundBrush}">
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" Margin="20 50 0 10">
-                <TextBlock Text="Год: " Foreground="White" FontSize="20"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ComeBack}">
+                    <materialDesign:PackIcon Kind="ArrowLeft" Foreground="White" Height="40" Width="auto"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20 20 0 10">
+                <TextBlock Text="Год: " Style="{DynamicResource InfoStatistics}"/>
                 <ComboBox ItemsSource="{Binding Years}" Height="30" Width="auto"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
-                <TextBlock Text="Количество произведений:" Foreground="White" FontSize="20" />
-                <TextBlock Text="{Binding CountBooks}"/>
+                <TextBlock Text="Количество произведений:" Style="{DynamicResource InfoStatistics}"/>
+                <TextBlock Text="{Binding CountBooks}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
-                <TextBlock Text="Количество прочитаных страниц:" Foreground="White" FontSize="20"/>
-                <TextBlock Text="{Binding CountPages}"/>
+                <TextBlock Text="Количество прочитаных страниц:" Style="{DynamicResource InfoStatistics}"/>
+                <TextBlock Text="{Binding CountPages}" Foreground="White" FontSize="20" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
-                <TextBlock Text="Количество авторов:" Foreground="White" FontSize="20"/>
-                <TextBlock Text="{Binding CountAuthors}"/>
+                <TextBlock Text="Количество авторов:"  Style="{DynamicResource InfoStatistics}"/>
+                <TextBlock Text="{Binding CountAuthors}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
-                <TextBlock Text="Самый читаемый автор:" Foreground="White" FontSize="20"/>
-                <TextBlock Text="{Binding TheMostPopularAuthor}"/>
+                <TextBlock Text="Самый читаемый автор:" Style="{DynamicResource InfoStatistics}"/>
+                <TextBlock Text="{Binding TheMostPopularAuthor}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

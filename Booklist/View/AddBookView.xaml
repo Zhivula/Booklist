@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:Booklist.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#222531">
+    <Grid Background="{DynamicResource BackgroundBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3*"/>
@@ -25,11 +25,11 @@
                     </Ellipse.Fill>
                 </Ellipse>
                 <!--ImageSource="pack://application:,,,/Resourses/19286.jpg"-->
-                <Border Background="Blue" CornerRadius="10" Margin="20">
+                <Border Background="{DynamicResource DarkBaseBrush}" CornerRadius="10" Margin="20">
                     <Button Background="Transparent" BorderThickness="0" Margin="5" Command="{Binding AddPhoto}">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Plus" Foreground="White" Height="20" Width="20"/>
-                            <TextBlock Text="Add Photo" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            <materialDesign:PackIcon Kind="Plus" Foreground="White" Height="25" Width="25"/>
+                            <TextBlock Text="Add Photo" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
                         </StackPanel>
                     </Button>
                 </Border>
@@ -45,7 +45,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <Label Content="Author" Foreground="White" FontSize="16"/>
+                <Label Content="Author" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Author, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -57,7 +57,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <Label Content="Book Title" Foreground="White" FontSize="16"/>
+                <Label Content="Book Title" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding BookTitle, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -69,7 +69,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="2">
-                <Label Content="Number of pages" Foreground="White" FontSize="16"/>
+                <Label Content="Number of pages" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding NumberOfPages, UpdateSourceTrigger=PropertyChanged}"  FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -81,7 +81,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="3">
-                <Label Content="Mark" Foreground="White" FontSize="16"/>
+                <Label Content="Mark" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Mark, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -93,7 +93,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="4">
-                <Label Content="Date" Foreground="White" FontSize="16"/>
+                <Label Content="Date" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Date, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -105,11 +105,11 @@
                 </TextBox>
             </StackPanel>
             <Grid Grid.Row="5">
-                <Border Background="Blue" CornerRadius="10" Margin="150 10 150 10">
+                <Border Background="{DynamicResource DarkBaseBrush}" CornerRadius="10" Margin="150 15 150 15">
                     <Button Background="Transparent" BorderThickness="0" Margin="5" Command="{Binding SaveBook}">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="20" Width="20"/>
-                            <TextBlock Text="Save" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="25" Width="25"/>
+                            <TextBlock Text="Save" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
                         </StackPanel>
                     </Button>
                 </Border>

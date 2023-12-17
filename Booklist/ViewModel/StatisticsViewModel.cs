@@ -1,10 +1,13 @@
 ﻿using Booklist.Model;
+using Booklist.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Booklist.ViewModel
 {
@@ -58,8 +61,14 @@ namespace Booklist.ViewModel
             CountBooks = model.CountBooks;
             CountPages = model.CountPages;
             CountAuthors = model.CountAuthors;
-
+            TheMostPopularAuthor = model.TheMostPopularAuthor;
         }
+        public ICommand ComeBack => new DelegateCommand(o =>
+        {
+            var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            window.ChangedGrid.Children.Clear();
+            window.ChangedGrid.Children.Add(new MainPage());
+        });
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name)

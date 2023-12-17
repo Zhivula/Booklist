@@ -58,6 +58,7 @@ namespace Booklist.Model
                 CountBooks = GetCountBooks();
                 CountPages = GetCountPages();
                 CountAuthors = GetCountAuthors();
+                TheMostPopularAuthor = GetTheMostPopularAuthor();
             }
         }
         private string GetCountBooks()
@@ -82,6 +83,50 @@ namespace Booklist.Model
             {
                 if (context.Books != null) return context.Books.Select(x => x.Author).Distinct().Count().ToString();
                 else return "0";
+            }
+        }
+        private string GetTheMostPopularAuthor()
+        {
+            using (var context = new MyDbContext())
+            {
+                if (context.Books != null)
+                {
+                    var unique = context.Books.Select(x => x.Author).Distinct().ToList();
+                    var full = context.Books.Select(x => x.Author).ToList();
+                    var pages = context.Books.Select(x => x.Pages).ToList();
+                    var points = new List<int>(unique.Count());
+                    foreach (var i in unique) points.Add(0);
+                    for(var i = 0; i < unique.Count(); i++)
+                    {
+                        for(var j = 0; j < full.Count(); j++)
+                        {
+                            if (unique[i].Equals(full[j])) points[i]++;
+                        }
+                    }
+                    //теперь points хранит количество книг определенного автора
+                    //нужно сформировать массив из авторов с наибольшим количеством книг, и выбрать по количеству страниц (в случае если несколько авторов совпадают по количеству книг)
+                    var topAuthors = new List<string>();
+                    for(var i = 0; i < points.Count(); i++)
+                    {
+                        if (points[i] == points.Max()) topAuthors.Add(unique[i]);// тут формируются самые топовые авторы или, если значение 1, то находится сразу самый топовый автор
+                    }
+                    if (topAuthors.Count() > 1)
+                    {
+                        var topPages = new List<int>(topAuthors.Count());
+                        foreach (var i in topAuthors) topPages.Add(0);
+
+                        for (var i = 0; i < topAuthors.Count(); i++)
+                        {
+                            for (var j = 0; j < full.Count(); j++)
+                            {
+                                if (topAuthors[i].Equals(full[j])) topPages[i] += pages[j];
+                            }
+                        }
+                        return topAuthors[topPages.IndexOf(topPages.Max())];
+                    }
+                    else return topAuthors.First();
+                }
+                else return string.Empty;
             }
         }
         #region PropertyChanged

@@ -5,48 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Booklist.View"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1100">
+             d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
-        <Grid Background="#17171a" Height="35" VerticalAlignment="Top">
-            <Border BorderBrush="#333" BorderThickness="0 1"/>
+        <Grid Background="{DynamicResource LightBaseBrush}" Height="45" VerticalAlignment="Top">
+            <!--<Border BorderBrush="#333" BorderThickness="0 1"/>-->
             <Grid Margin="180 0 0 0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="80"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBlock Foreground="White" Text="Name" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                    <TextBlock Text="Name" Style="{StaticResource MenuText}"/>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <TextBlock Foreground="White" Text="Author" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                    <TextBlock Text="Author" Style="{StaticResource MenuText}"/>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <TextBlock Foreground="White" Text="Pages" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                    <TextBlock Text="Pages" Style="{StaticResource MenuText}"/>
                 </Grid>
                 <Grid Grid.Column="3">
-                    <TextBlock Foreground="White" Text="Date" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                    <TextBlock Text="Date" Style="{StaticResource MenuText}"/>
                 </Grid>
                 <Grid Grid.Column="4">
-                    <TextBlock Foreground="White" Text="Mark" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" FontFamily="Segoe UI Black" Margin="10"/>
+                    <TextBlock Text="Mark" Style="{StaticResource MenuText}"/>
                 </Grid>
             </Grid>
         </Grid>
-        <ListView ItemsSource="{Binding Books}" Background="Transparent" BorderThickness="0" Margin="0 35 0 0">
+        <ListView ItemsSource="{Binding Books}" Background="{DynamicResource BackgroundBrush}" BorderThickness="0" Margin="0 45 0 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid  Margin="60 0 0 0">
+                    <Grid  Margin="50 0 0 0">
                         <Border BorderThickness="0 0 0 1" BorderBrush="#333"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="250"/>
-                                <ColumnDefinition Width="250"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="230"/>
+                                <ColumnDefinition Width="230"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="80"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
                                 <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FF4A53FF">
@@ -56,23 +56,23 @@
                                 </Ellipse>
                             </Grid>
                             <WrapPanel Grid.Column="1" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Border Background="Gray" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
-                                    <TextBlock Foreground="White" TextWrapping="Wrap" Text="{Binding Path=Name}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Border Background="#FF7518" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding Path=Name}" Style="{StaticResource BaseText}" Foreground="{DynamicResource LightTextBrush}"/>
                                 </Border>
                             </WrapPanel>
                             <WrapPanel Grid.Column="2" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Border Background="Gray" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
-                                    <TextBlock Foreground="White" Text="{Binding Path=Author}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                <Border Background="#FF7518" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding Path=Author}" Style="{StaticResource BaseText}" Foreground="{DynamicResource LightTextBrush}"/>
                                 </Border>
                             </WrapPanel>
                             <Grid Grid.Column="3">
-                                <TextBlock Foreground="White" Text="{Binding Path=Pages}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                <TextBlock Text="{Binding Path=Pages}" Style="{StaticResource BaseText}"/>
                             </Grid>
                             <Grid Grid.Column="4">
-                                <TextBlock Foreground="White" Text="{Binding Path=Date}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                <TextBlock Text="{Binding Path=Date}" Style="{StaticResource BaseText}"/>
                             </Grid>
                             <Grid Grid.Column="5">
-                                <TextBlock Foreground="White" Text="{Binding Path=Mark}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                                <TextBlock Text="{Binding Path=Mark}" Style="{StaticResource BaseText}"/>
                             </Grid>
                         </Grid>
                     </Grid>
