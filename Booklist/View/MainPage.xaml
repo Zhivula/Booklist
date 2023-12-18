@@ -13,43 +13,53 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="230"/>
                     <ColumnDefinition Width="230"/>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="170"/>
                     <ColumnDefinition Width="80"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBlock Text="Name" Style="{StaticResource MenuText}"/>
+                    <TextBlock Text="Название" Style="{StaticResource MenuText}"/>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <TextBlock Text="Author" Style="{StaticResource MenuText}"/>
+                    <TextBlock Text="Автор" Style="{StaticResource MenuText}"/>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <TextBlock Text="Pages" Style="{StaticResource MenuText}"/>
+                    <TextBlock Text="Страниц" Style="{StaticResource MenuText}"/>
                 </Grid>
                 <Grid Grid.Column="3">
-                    <TextBlock Text="Date" Style="{StaticResource MenuText}"/>
+                    <TextBlock Text="Дата" Style="{StaticResource MenuText}"/>
                 </Grid>
                 <Grid Grid.Column="4">
-                    <TextBlock Text="Mark" Style="{StaticResource MenuText}"/>
+                    <TextBlock Text="Оценка" Style="{StaticResource MenuText}"/>
                 </Grid>
             </Grid>
         </Grid>
         <ListView ItemsSource="{Binding Books}" Background="{DynamicResource BackgroundBrush}" BorderThickness="0" Margin="0 45 0 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid  Margin="50 0 0 0">
-                        <Border BorderThickness="0 0 0 1" BorderBrush="#333"/>
+                    <Grid  Margin="50 5 0 0" MouseRightButtonDown="ListBoxItemPageViewCommand">
+                        <Border BorderThickness="0 0 0 2" BorderBrush="#FFDB8B" Margin="0 0 0 -2"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
                                 <ColumnDefinition Width="230"/>
                                 <ColumnDefinition Width="230"/>
-                                <ColumnDefinition Width="80"/>
-                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition Width="170"/>
                                 <ColumnDefinition Width="80"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FF4A53FF">
+                                <Border>
+                                    <Ellipse Height="120" Width="120" Margin="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="{DynamicResource UltraLightBaseColor}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="5" Direction="280" Color="Black" Opacity="0.5"  BlurRadius="12.0" />
+                                    </Border.Effect>
+                                </Border>
+                                <Ellipse Height="120" Width="120" Margin="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
                                     <Ellipse.Fill>
                                         <ImageBrush ImageSource="{Binding PathPhoto}" Stretch="UniformToFill"/>
                                     </Ellipse.Fill>
@@ -57,12 +67,20 @@
                             </Grid>
                             <WrapPanel Grid.Column="1" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Border Background="#FF7518" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
-                                    <TextBlock TextWrapping="Wrap" Text="{Binding Path=Name}" Style="{StaticResource BaseText}" Foreground="{DynamicResource LightTextBrush}"/>
+                                    <TextBlock TextWrapping="Wrap"
+                                               Text="{Binding Path=Name}"
+                                               Style="{StaticResource BaseText}"
+                                               FontSize="{DynamicResource Big}"
+                                               Foreground="{DynamicResource LightTextBrush}"/>
                                 </Border>
                             </WrapPanel>
                             <WrapPanel Grid.Column="2" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Border Background="#FF7518" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
-                                    <TextBlock TextWrapping="Wrap" Text="{Binding Path=Author}" Style="{StaticResource BaseText}" Foreground="{DynamicResource LightTextBrush}"/>
+                                    <TextBlock TextWrapping="Wrap"
+                                               Text="{Binding Path=Author}"
+                                               Style="{StaticResource BaseText}"
+                                               FontSize="{DynamicResource Big}"
+                                               Foreground="{DynamicResource LightTextBrush}"/>
                                 </Border>
                             </WrapPanel>
                             <Grid Grid.Column="3">

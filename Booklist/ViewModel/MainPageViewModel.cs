@@ -1,6 +1,7 @@
 ﻿using Booklist.Data;
 using Booklist.DataBase;
 using Booklist.Model;
+using Booklist.Resourses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,7 @@ namespace Booklist.ViewModel
             foreach (var i in new MainPageModel().ListMainPage)
             {
                 filterList.Add(new BookFilter() {
+                    Id = i.Id,
                     Author = i.Author,
                     Pages = i.Pages,
                     Name = i.Name,

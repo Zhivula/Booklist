@@ -10,8 +10,8 @@
     <Grid Background="{DynamicResource BackgroundBrush}">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ComeBack}">
-                    <materialDesign:PackIcon Kind="ArrowLeft" Foreground="White" Height="40" Width="auto"/>
+                <Button Style="{DynamicResource ComeBackButton}" Background="White" Command="{Binding ComeBack}">
+                    <materialDesign:PackIcon Kind="ArrowLeft" Foreground="{DynamicResource LightBaseBrush}" Height="40" Width="auto"/>
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 20 0 10">
@@ -24,7 +24,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
                 <TextBlock Text="Количество прочитаных страниц:" Style="{DynamicResource InfoStatistics}"/>
-                <TextBlock Text="{Binding CountPages}" Foreground="White" FontSize="20" />
+                <TextBlock Text="{Binding CountPages}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
                 <TextBlock Text="Количество авторов:"  Style="{DynamicResource InfoStatistics}"/>

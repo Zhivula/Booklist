@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Booklist.Data
 {
-    class BookFilter
+    public class BookFilter
     {
         public int Id { get; set; }
         public string Name { get; set; }

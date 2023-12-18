@@ -26,19 +26,15 @@
                     <TextBlock Text="Booklist.Vladislav Zhivula" Foreground="White" FontSize="16" Margin="20 0 0 0"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                    <Border Background="White" CornerRadius="10">
-                        <Button Background="Transparent" BorderThickness="0" Padding="10 0 10 0"  Command="{Binding AddBook}">
-                            <materialDesign:PackIcon Kind="Plus" Foreground="{DynamicResource LightBaseBrush}" Height="30" Width="30"/>
+                    <Button Style="{DynamicResource MainWindowButton}" Background="White" Margin="0 0 10 0" Command="{Binding AddBook}">
+                            <materialDesign:PackIcon Kind="Plus" Foreground="{DynamicResource LightBaseBrush}" Height="30" Width="50"/>
                         </Button>
-                    </Border>
-                    <Border Background="White" CornerRadius="10" Margin="10 0 0 0">
-                        <Button Background="Transparent" BorderThickness="0" Padding="10 0 10 0"  Command="{Binding Statistics}">
-                            <materialDesign:PackIcon Kind="ChartBar" Foreground="{DynamicResource LightBaseBrush}" Height="30" Width="30"/>
-                        </Button>
-                    </Border>
+                    <Button Style="{DynamicResource MainWindowButton}" Background="White" Command="{Binding Statistics}">
+                        <materialDesign:PackIcon Kind="ChartBar" Foreground="{DynamicResource LightBaseBrush}" Height="30" Width="50"/>
+                    </Button>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right">
-                    <Button HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Margin="0 10 10 0" Command="{Binding CloseWindow}">
+                    <Button Style="{DynamicResource MainWindowButton}" Margin="0 5 5 0" Background="Transparent" Command="{Binding CloseWindow}">
                         <materialDesign:PackIcon Kind="Close" Foreground="White" Height="30" Width="30"/>
                     </Button>
                 </StackPanel>

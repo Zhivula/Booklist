@@ -14,25 +14,38 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <StackPanel Orientation="Horizontal">
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ComeBack}">
-                    <materialDesign:PackIcon Kind="ArrowLeft" Foreground="White" Height="40" Width="auto"/>
+                <Button Style="{DynamicResource ComeBackButton}" Background="White" Command="{Binding ComeBack}">
+                    <materialDesign:PackIcon Kind="ArrowLeft" Foreground="{DynamicResource LightBaseBrush}" Height="40" Width="auto"/>
                 </Button>
             </StackPanel>
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical">
-                <Ellipse Height="200" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FF4A53FF">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="{Binding PathPhoto,UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-                <!--ImageSource="pack://application:,,,/Resourses/19286.jpg"-->
-                <Border Background="{DynamicResource DarkBaseBrush}" CornerRadius="10" Margin="20">
-                    <Button Background="Transparent" BorderThickness="0" Margin="5" Command="{Binding AddPhoto}">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Plus" Foreground="White" Height="25" Width="25"/>
-                            <TextBlock Text="Add Photo" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
-                        </StackPanel>
-                    </Button>
-                </Border>
+                <Grid Style="{DynamicResource LeftToRight}">
+                    <Grid.RenderTransform>
+                        <TranslateTransform X="-300" Y="0"/>
+                    </Grid.RenderTransform>
+                    <Border>
+                        <Ellipse Height="200" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
+                            <Ellipse.Fill>
+                                <SolidColorBrush Color="{DynamicResource UltraLightBaseColor}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="5" Direction="280" Color="Black" Opacity="0.5"  BlurRadius="12.0" />
+                        </Border.Effect>
+                    </Border>
+
+                    <Ellipse Height="200" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding PathPhoto,UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <Button Margin="20" Style="{DynamicResource BaseButton}" Command="{Binding AddPhoto}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Plus" Foreground="White" Height="25" Width="25"/>
+                        <TextBlock Text="Добавить фото" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                    </StackPanel>
+                </Button>
             </WrapPanel>
         </StackPanel>
         <Grid Grid.Column="1" Margin="0 10 50 0">
@@ -45,7 +58,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <Label Content="Author" Style="{DynamicResource LabelInput}"/>
+                <Label Content="Автор" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Author, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -57,7 +70,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <Label Content="Book Title" Style="{DynamicResource LabelInput}"/>
+                <Label Content="Названиие" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding BookTitle, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -69,7 +82,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="2">
-                <Label Content="Number of pages" Style="{DynamicResource LabelInput}"/>
+                <Label Content="Количество страниц" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding NumberOfPages, UpdateSourceTrigger=PropertyChanged}"  FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -81,7 +94,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="3">
-                <Label Content="Mark" Style="{DynamicResource LabelInput}"/>
+                <Label Content="Оценка" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Mark, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -93,7 +106,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="4">
-                <Label Content="Date" Style="{DynamicResource LabelInput}"/>
+                <Label Content="Дата" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Date, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
                         <ControlTemplate>
@@ -105,14 +118,12 @@
                 </TextBox>
             </StackPanel>
             <Grid Grid.Row="5">
-                <Border Background="{DynamicResource DarkBaseBrush}" CornerRadius="10" Margin="150 15 150 15">
-                    <Button Background="Transparent" BorderThickness="0" Margin="5" Command="{Binding SaveBook}">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="25" Width="25"/>
-                            <TextBlock Text="Save" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
-                        </StackPanel>
-                    </Button>
-                </Border>
+                <Button Margin="120 10 120 30" Style="{DynamicResource BaseButton}" Command="{Binding SaveBook}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="25" Width="25"/>
+                        <TextBlock Text="Сохранить" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                    </StackPanel>
+                </Button>
             </Grid>
         </Grid>
     </Grid>

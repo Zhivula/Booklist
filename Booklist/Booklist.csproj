@@ -77,10 +77,15 @@
     <Compile Include="Data\DelegateCommand.cs" />
     <Compile Include="Model\AddBookModel.cs" />
     <Compile Include="Model\MainPageModel.cs" />
+    <Compile Include="Model\PanelRightClickModel.cs" />
     <Compile Include="Model\StatisticsModel.cs" />
+    <Compile Include="Resourses\PanelRightClick.xaml.cs">
+      <DependentUpon>PanelRightClick.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AddBookViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\PanelRightClickViewModel.cs" />
     <Compile Include="ViewModel\StatisticsViewModel.cs" />
     <Compile Include="View\AddBookView.xaml.cs">
       <DependentUpon>AddBookView.xaml</DependentUpon>
@@ -91,6 +96,18 @@
     <Compile Include="View\StatisticsView.xaml.cs">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Animations\AddBookItemsAnimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resourses\PanelRightClick.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

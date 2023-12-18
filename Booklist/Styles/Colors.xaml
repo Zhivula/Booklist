@@ -9,6 +9,11 @@
 
     <SolidColorBrush x:Key="LightBaseBrush" Color="#FF7518"/>
     <Color x:Key="LightBaseColor">#FF7518</Color>
+    
+    <SolidColorBrush x:Key="UltraLightBaseBrush" Color="#FFFDD0"/>
+    <Color x:Key="UltraLightBaseColor">#FFFDD0</Color>
+    
+    
 
     <SolidColorBrush x:Key="BackgroundBrush" Color="#FFFFFF"/>
     <Color x:Key="BackgroundColor">#FFFFFF</Color>
