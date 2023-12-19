@@ -1,6 +1,7 @@
 ﻿using Booklist.Data;
 using Booklist.Model;
 using Booklist.Resourses;
+using Booklist.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,19 +52,10 @@ namespace Booklist.ViewModel
         {
             model.DeleteBook(id);
             MessageBox.Show("Успешно!");
-
-            for (int i = window.ChangedGrid.Children.Count - 1; i >= 0; --i)
-            {
-                var childTypeName = window.ChangedGrid.Children[i].GetType().Name;
-                if (childTypeName == nameof(PanelRightClick))
-                {
-                    window.ChangedGrid.Children.RemoveAt(i);
-                }
-            }
         });
-        public ICommand ChangeBook => new DelegateCommand(o =>
+        public ICommand EditBook => new DelegateCommand(o =>
         {
-
+            window.ChangedGrid.Children.Add(new EditBookView(id));
         });
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

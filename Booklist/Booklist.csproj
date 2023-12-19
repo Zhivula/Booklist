@@ -76,6 +76,7 @@
     <Compile Include="Data\BookFilter.cs" />
     <Compile Include="Data\DelegateCommand.cs" />
     <Compile Include="Model\AddBookModel.cs" />
+    <Compile Include="Model\EditBookModel.cs" />
     <Compile Include="Model\MainPageModel.cs" />
     <Compile Include="Model\PanelRightClickModel.cs" />
     <Compile Include="Model\StatisticsModel.cs" />
@@ -83,12 +84,16 @@
       <DependentUpon>PanelRightClick.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AddBookViewModel.cs" />
+    <Compile Include="ViewModel\EditBookViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PanelRightClickViewModel.cs" />
     <Compile Include="ViewModel\StatisticsViewModel.cs" />
     <Compile Include="View\AddBookView.xaml.cs">
       <DependentUpon>AddBookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditBookView.xaml.cs">
+      <DependentUpon>EditBookView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -121,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddBookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditBookView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
