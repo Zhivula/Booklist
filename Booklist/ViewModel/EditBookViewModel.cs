@@ -90,11 +90,15 @@ namespace Booklist.ViewModel
             Date = book.Date.ToShortDateString();
             PathPhoto = book.PathPhoto;
         }
-        public ICommand ComeBack => new DelegateCommand(o =>
+        private void ToMainPage()
         {
             var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             window.ChangedGrid.Children.Clear();
             window.ChangedGrid.Children.Add(new MainPage());
+        }
+        public ICommand ComeBack => new DelegateCommand(o =>
+        {
+            ToMainPage();
         });
         public ICommand EditPhoto => new DelegateCommand(o =>
         {
@@ -115,13 +119,14 @@ namespace Booklist.ViewModel
         });
         public ICommand EditBook => new DelegateCommand(o =>
         {
-            if (!string.IsNullOrWhiteSpace(Author) || !string.IsNullOrWhiteSpace(BookTitle) || NumberOfPages > 0 || Mark > 0)
+            if (!string.IsNullOrWhiteSpace(Author) || !string.IsNullOrWhiteSpace(BookTitle) || NumberOfPages > 0 || Mark > 0 || !string.IsNullOrWhiteSpace(Date))
             {
                 model.EditBook(id, BookTitle, Author, DateTime.Parse(Date), Mark, NumberOfPages, PathPhoto);
                 Author = BookTitle = string.Empty;
                 NumberOfPages = Mark = 0;
                 PathPhoto = string.Empty;
                 MessageBox.Show("Успешно!");
+                ToMainPage();
             }
             else MessageBox.Show("Некорректные данные.");
         });

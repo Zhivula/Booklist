@@ -105,7 +105,7 @@ namespace Booklist.ViewModel
         });
         public ICommand SaveBook => new DelegateCommand(o =>
         {
-            if (!string.IsNullOrWhiteSpace(Author) || !string.IsNullOrWhiteSpace(BookTitle) || NumberOfPages > 0 || Mark > 0)
+            if (!string.IsNullOrWhiteSpace(Author) || !string.IsNullOrWhiteSpace(BookTitle) || NumberOfPages > 0 || Mark > 0 || !string.IsNullOrWhiteSpace(Date))
             {
                 model.AddBook(BookTitle, Author, DateTime.Parse(Date), Mark, NumberOfPages, PathPhoto);
                 Author = BookTitle = string.Empty;

@@ -40,7 +40,7 @@
                         </Ellipse.Fill>
                     </Ellipse>
                 </Grid>
-                <Button Margin="0 20 0 20" Style="{DynamicResource BaseButton}" Command="{Binding AddPhoto}">
+                <Button Margin="0 20 0 20" Style="{DynamicResource BaseButton}" Command="{Binding EditPhoto}">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Foreground="White" Height="25" Width="25"/>
                         <TextBlock Text="Измениить фото" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -118,7 +118,7 @@
                 </TextBox>
             </StackPanel>
             <Grid Grid.Row="5">
-                <Button Margin="100 10 100 30" Style="{DynamicResource BaseButton}" Command="{Binding SaveBook}">
+                <Button Margin="100 10 100 30" Style="{DynamicResource BaseButton}" Command="{Binding EditBook}">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Foreground="White" Height="25" Width="25"/>
                         <TextBlock Text="Сохранить изменения" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>

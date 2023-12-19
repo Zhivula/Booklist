@@ -17,6 +17,7 @@ namespace Booklist.ViewModel
         private string countPages;
         private string countAuthors;
         private string theMostPopularAuthor;
+        private string averageMark;
 
         public string CountBooks
         {
@@ -54,6 +55,16 @@ namespace Booklist.ViewModel
                 OnPropertyChanged(nameof(TheMostPopularAuthor));
             }
         }
+        public string AverageMark
+        {
+            get => averageMark;
+            set
+            {
+                averageMark = value;
+                OnPropertyChanged(nameof(AverageMark));
+            }
+        }
+
         public StatisticsViewModel()
         {
             var model = new StatisticsModel();
@@ -62,6 +73,7 @@ namespace Booklist.ViewModel
             CountPages = model.CountPages;
             CountAuthors = model.CountAuthors;
             TheMostPopularAuthor = model.TheMostPopularAuthor;
+            AverageMark = model.AverageMark;
         }
         public ICommand ComeBack => new DelegateCommand(o =>
         {

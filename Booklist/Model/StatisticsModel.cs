@@ -14,6 +14,7 @@ namespace Booklist.Model
         private string countPages;
         private string countAuthors;
         private string theMostPopularAuthor;
+        private string averageMark;
 
         public string CountBooks
         {
@@ -51,6 +52,16 @@ namespace Booklist.Model
                 OnPropertyChanged(nameof(TheMostPopularAuthor));
             }
         }
+        public string AverageMark
+        {
+            get => averageMark;
+            set
+            {
+                averageMark = value;
+                OnPropertyChanged(nameof(AverageMark));
+            }
+        }
+
         public StatisticsModel()
         {
             using (var context = new MyDbContext())
@@ -59,6 +70,7 @@ namespace Booklist.Model
                 CountPages = GetCountPages();
                 CountAuthors = GetCountAuthors();
                 TheMostPopularAuthor = GetTheMostPopularAuthor();
+                AverageMark = GetAverageMark();
             }
         }
         private string GetCountBooks()
@@ -83,6 +95,17 @@ namespace Booklist.Model
             {
                 if (context.Books != null) return context.Books.Select(x => x.Author).Distinct().Count().ToString();
                 else return "0";
+            }
+        }
+        private string GetAverageMark()
+        {
+            using (var context = new MyDbContext())
+            {
+                if (context.Books.Count() > 0)
+                {
+                    return ((double)context.Books.Select(x => x.Mark).Sum() / context.Books.Count()).ToString("#.##");
+                }
+                else return "-";
             }
         }
         private string GetTheMostPopularAuthor()

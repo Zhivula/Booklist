@@ -19,11 +19,11 @@
                 <ComboBox ItemsSource="{Binding Years}" Height="30" Width="auto"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
-                <TextBlock Text="Количество произведений:" Style="{DynamicResource InfoStatistics}"/>
+                <TextBlock Text="Количество прочитанных произведений:" Style="{DynamicResource InfoStatistics}"/>
                 <TextBlock Text="{Binding CountBooks}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
-                <TextBlock Text="Количество прочитаных страниц:" Style="{DynamicResource InfoStatistics}"/>
+                <TextBlock Text="Количество прочитанных страниц:" Style="{DynamicResource InfoStatistics}"/>
                 <TextBlock Text="{Binding CountPages}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
@@ -33,6 +33,10 @@
             <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
                 <TextBlock Text="Самый читаемый автор:" Style="{DynamicResource InfoStatistics}"/>
                 <TextBlock Text="{Binding TheMostPopularAuthor}" Style="{DynamicResource InfoStatistics}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
+                <TextBlock Text="Средняя оценка:" Style="{DynamicResource InfoStatistics}"/>
+                <TextBlock Text="{Binding AverageMark}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

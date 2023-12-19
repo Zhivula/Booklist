@@ -37,8 +37,8 @@
         <ListView ItemsSource="{Binding Books}" Background="{DynamicResource BackgroundBrush}" BorderThickness="0" Margin="0 45 0 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid  Margin="50 5 0 0">
-                        <Border BorderThickness="0 0 0 2" BorderBrush="#FFDB8B" Margin="0 0 0 -2" MouseRightButtonDown="ListBoxItemPageViewCommand">
+                    <Grid  Margin="50 5 0 0" MouseRightButtonDown="ListBoxItemPageViewCommand">
+                        <Border BorderThickness="0 0 0 2" BorderBrush="#FFDB8B" Margin="0 0 0 -2" >
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
