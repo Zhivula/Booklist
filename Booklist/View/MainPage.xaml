@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Booklist.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
@@ -11,42 +12,72 @@
             <!--<Border BorderBrush="#333" BorderThickness="0 1"/>-->
             <Grid Margin="180 0 0 0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="230"/>
-                    <ColumnDefinition Width="230"/>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="170"/>
-                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="210"/>
+                    <ColumnDefinition Width="210"/>
+                    <ColumnDefinition Width="115"/>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="115"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBlock Text="Название" Style="{StaticResource MenuText}"/>
+                    <Button x:Name="RRR" Style="{DynamicResource MenuButton}" Command="{Binding SortBookTitles}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Название" Style="{StaticResource MenuText}"/>
+                            <Button Style="{StaticResource RotateAnimation}">
+                                <Button.RenderTransform>
+                                    <RotateTransform Angle="0" CenterX="17.5" CenterY="17.5"/>
+                                </Button.RenderTransform>
+                                <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="25" Width="25"/>
+                            </Button>
+                        </StackPanel>
+                    </Button>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <TextBlock Text="Автор" Style="{StaticResource MenuText}"/>
+                    <Button Style="{DynamicResource MenuButton}" Command="{Binding SortAuthors}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Автор" Style="{StaticResource MenuText}"/>
+                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="30" Width="30"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <TextBlock Text="Страниц" Style="{StaticResource MenuText}"/>
+                    <Button Style="{DynamicResource MenuButton}" Command="{Binding SortPages}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Страниц" Style="{StaticResource MenuText}"/>
+                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="30" Width="30"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
                 <Grid Grid.Column="3">
-                    <TextBlock Text="Дата" Style="{StaticResource MenuText}"/>
+                    <Button Style="{DynamicResource MenuButton}" Command="{Binding SortDate}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Дата" Style="{StaticResource MenuText}"/>
+                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="30" Width="30"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
                 <Grid Grid.Column="4">
-                    <TextBlock Text="Оценка" Style="{StaticResource MenuText}"/>
+                    <Button Style="{DynamicResource MenuButton}" Command="{Binding SortMarks}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Оценка" Style="{StaticResource MenuText}"/>
+                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="30" Width="30"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
-        <ListView ItemsSource="{Binding Books}" Background="{DynamicResource BackgroundBrush}" BorderThickness="0" Margin="0 45 0 0">
+        <ListView ItemsSource="{Binding Books, UpdateSourceTrigger=PropertyChanged}" Background="{DynamicResource BackgroundBrush}" BorderThickness="0" Margin="0 45 0 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid  Margin="50 5 0 0" MouseRightButtonDown="ListBoxItemPageViewCommand">
+                    <Grid  Margin="40 5 0 0" MouseRightButtonDown="ListBoxItemPageViewCommand">
                         <Border BorderThickness="0 0 0 2" BorderBrush="#FFDB8B" Margin="0 0 0 -2" >
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
-                                    <ColumnDefinition Width="230"/>
-                                    <ColumnDefinition Width="230"/>
-                                    <ColumnDefinition Width="90"/>
-                                    <ColumnDefinition Width="170"/>
-                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="210"/>
+                                    <ColumnDefinition Width="210"/>
+                                    <ColumnDefinition Width="115"/>
+                                    <ColumnDefinition Width="160"/>
+                                    <ColumnDefinition Width="115"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
                                     <Border>
@@ -71,7 +102,8 @@
                                                Text="{Binding Path=Name}"
                                                Style="{StaticResource BaseText}"
                                                FontSize="{DynamicResource Big}"
-                                               Foreground="{DynamicResource LightTextBrush}"/>
+                                               Foreground="{DynamicResource LightTextBrush}"
+                                               HorizontalAlignment="Center"/>
                                     </Border>
                                 </WrapPanel>
                                 <WrapPanel Grid.Column="2" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -80,7 +112,8 @@
                                                Text="{Binding Path=Author}"
                                                Style="{StaticResource BaseText}"
                                                FontSize="{DynamicResource Big}"
-                                               Foreground="{DynamicResource LightTextBrush}"/>
+                                               Foreground="{DynamicResource LightTextBrush}"
+                                               HorizontalAlignment="Center"/>
                                     </Border>
                                 </WrapPanel>
                                 <Grid Grid.Column="3">

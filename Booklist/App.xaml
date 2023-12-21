@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="Styles/Buttons.xaml"/>
 
                 <ResourceDictionary Source="Animations/AddBookItemsAnimation.xaml"/>
+                <ResourceDictionary Source="Animations/ArrowAnimation.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

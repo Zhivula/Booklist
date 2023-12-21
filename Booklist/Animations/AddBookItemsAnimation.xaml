@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Booklist.Animations">
 
-    <Style x:Key="LeftToRight"  TargetType="{x:Type Grid}">
+    <Style x:Key="LeftToRight_Photo"  TargetType="{x:Type Grid}">
         <Style.Triggers>
             <EventTrigger RoutedEvent="UserControl.Loaded">
                 <BeginStoryboard>
@@ -11,10 +11,10 @@
                         <DoubleAnimation Storyboard.TargetProperty="Opacity" 
                                          From="0"
                                          To="1"
-                                         Duration="0:0:0.7"
+                                         Duration="0:0:0.8"
                                          FillBehavior="HoldEnd"/>
                         <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
-                                         From="-300"
+                                         From="-100"
                                          To="0"
                                          Duration="0:0:0.45"
                                          FillBehavior="HoldEnd"/>
@@ -23,7 +23,140 @@
             </EventTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="RightToLeft"  TargetType="{x:Type Grid}">
+    <Style x:Key="RightToLeft_LabelTextBox_ForAuthor" TargetType="{x:Type StackPanel}">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         From="0.2"
+                                         To="1"
+                                         Duration="0:0:1"
+                                         FillBehavior="HoldEnd"/>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
+                                         From="100"
+                                         To="0"
+                                         Duration="0:0:0.45"
+                                         FillBehavior="HoldEnd"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="RightToLeft_LabelTextBox_ForBookTitle" TargetType="{x:Type StackPanel}">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         From="0.2"
+                                         To="1"
+                                         Duration="0:0:1"
+                                         FillBehavior="HoldEnd"/>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
+                                         From="150"
+                                         To="0"
+                                         Duration="0:0:0.50"
+                                         FillBehavior="HoldEnd"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RightToLeft_LabelTextBox_ForNumberOfPages" TargetType="{x:Type StackPanel}">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         From="0.2"
+                                         To="1"
+                                         Duration="0:0:1"
+                                         FillBehavior="HoldEnd"/>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
+                                         From="200"
+                                         To="0"
+                                         Duration="0:0:0.55"
+                                         FillBehavior="HoldEnd"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RightToLeft_LabelTextBox_ForMark" TargetType="{x:Type StackPanel}">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         From="0.2"
+                                         To="1"
+                                         Duration="0:0:1"
+                                         FillBehavior="HoldEnd"/>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
+                                         From="250"
+                                         To="0"
+                                         Duration="0:0:0.6"
+                                         FillBehavior="HoldEnd"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RightToLeft_LabelTextBox_ForDate" TargetType="{x:Type StackPanel}">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                         From="0.2"
+                                         To="1"
+                                         Duration="0:0:1"
+                                         FillBehavior="HoldEnd"/>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
+                                         From="300"
+                                         To="0"
+                                         Duration="0:0:0.65"
+                                         FillBehavior="HoldEnd"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BottomToTop_Button" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource DarkBaseBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource BaseFont}"/>
+        <Setter Property="FontSize" Value="{StaticResource Regular}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="brd" Background="{TemplateBinding Background}" CornerRadius="5">
+                        <ContentPresenter Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="2" Direction="270" Color="Black" Opacity="0.7"  BlurRadius="7.5" />
+                        </Border.Effect>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="Background" Value="{StaticResource DarkBaseBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{StaticResource LightBaseBrush}"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" Value="{StaticResource DarkBaseBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <EventTrigger RoutedEvent="UserControl.Loaded">
                 <BeginStoryboard>
@@ -33,16 +166,15 @@
                                          To="1"
                                          Duration="0:0:0.7"
                                          FillBehavior="HoldEnd"/>
-                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
-                                         From="460"
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" 
+                                         From="30"
                                          To="0"
-                                         Duration="0:0:0.45"
+                                         Duration="0:0:0.7"
+                                         DecelerationRatio="0.2"
                                          FillBehavior="HoldEnd"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
         </Style.Triggers>
-    </Style>
-    <Style x:Key="RLLL"  TargetType="{x:Type Grid}">
     </Style>
 </ResourceDictionary>
