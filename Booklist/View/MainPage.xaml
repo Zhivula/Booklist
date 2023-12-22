@@ -19,10 +19,15 @@
                     <ColumnDefinition Width="115"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <Button Style="{DynamicResource MenuButton}" Command="{Binding SortBookTitles}">
-                        <StackPanel Orientation="Horizontal">
+                    <Button x:Name="RRR" Style="{DynamicResource MenuButton}" Command="{Binding SortBookTitles}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock Text="Название" Style="{StaticResource MenuText}"/>
-                            <materialDesign:PackIcon Kind="ArrowUpDown" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Height="20" Width="20"/>
+                            <Button Style="{StaticResource RotateAnimation}">
+                                <Button.RenderTransform>
+                                    <RotateTransform Angle="0" CenterX="17.5" CenterY="17.5"/>
+                                </Button.RenderTransform>
+                                <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="25" Width="25"/>
+                            </Button>
                         </StackPanel>
                     </Button>
                 </Grid>
@@ -30,7 +35,7 @@
                     <Button Style="{DynamicResource MenuButton}" Command="{Binding SortAuthors}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Автор" Style="{StaticResource MenuText}"/>
-                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="30" Width="30"/>
                         </StackPanel>
                     </Button>
                 </Grid>
@@ -38,7 +43,7 @@
                     <Button Style="{DynamicResource MenuButton}" Command="{Binding SortPages}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Страниц" Style="{StaticResource MenuText}"/>
-                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="30" Width="30"/>
                         </StackPanel>
                     </Button>
                 </Grid>
@@ -46,7 +51,7 @@
                     <Button Style="{DynamicResource MenuButton}" Command="{Binding SortDate}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Дата" Style="{StaticResource MenuText}"/>
-                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="30" Width="30"/>
                         </StackPanel>
                     </Button>
                 </Grid>
@@ -54,13 +59,13 @@
                     <Button Style="{DynamicResource MenuButton}" Command="{Binding SortMarks}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Оценка" Style="{StaticResource MenuText}"/>
-                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon Kind="ArrowUpDown" Foreground="White" Height="30" Width="30"/>
                         </StackPanel>
                     </Button>
                 </Grid>
             </Grid>
         </Grid>
-        <ListView ScrollViewer.CanContentScroll="False" ItemsSource="{Binding Books, UpdateSourceTrigger=PropertyChanged}" Background="{DynamicResource BackgroundBrush}" BorderThickness="0" Margin="0 45 0 0">
+        <ListView ItemsSource="{Binding Books, UpdateSourceTrigger=PropertyChanged}" Background="{DynamicResource BackgroundBrush}" BorderThickness="0" Margin="0 45 0 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid  Margin="40 5 0 0" MouseRightButtonDown="ListBoxItemPageViewCommand">

@@ -1,7 +1,6 @@
 ﻿using Booklist.DataBase;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -16,7 +15,6 @@ namespace Booklist.Model
         private string countAuthors;
         private string theMostPopularAuthor;
         private string averageMark;
-        private List<string> years;
 
         public string CountBooks
         {
@@ -63,15 +61,6 @@ namespace Booklist.Model
                 OnPropertyChanged(nameof(AverageMark));
             }
         }
-        public List<string> Years
-        {
-            get => years;
-            set
-            {
-                years = value;
-                OnPropertyChanged(nameof(Years));
-            }
-        }
 
         public StatisticsModel()
         {
@@ -82,10 +71,8 @@ namespace Booklist.Model
                 CountAuthors = GetCountAuthors();
                 TheMostPopularAuthor = GetTheMostPopularAuthor();
                 AverageMark = GetAverageMark();
-                Years = GetYears();
             }
         }
-
         private string GetCountBooks()
         {
             using (var context = new MyDbContext())
@@ -165,20 +152,6 @@ namespace Booklist.Model
                 else return string.Empty;
             }
         }
-        private List<string> GetYears()
-        {
-            using (var context = new MyDbContext())
-            {
-                if (context.Books.Count() > 0)
-                {
-                    return context.Books.Select(x => x.Date.Year.ToString()).Distinct().ToList();
-                }
-                else return null;
-            }
-        }
-
-
-
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name)

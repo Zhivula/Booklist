@@ -75,16 +75,14 @@ namespace Booklist.ViewModel
                 OnPropertyChanged(nameof(PathPhoto));
             }
         }
-
-        private readonly AddBookModel model = new AddBookModel();
-        private readonly MainWindow window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-
+        public AddBookModel model = new AddBookModel();
         public AddBookViewModel()
         {
             Date = DateTime.Now.ToShortDateString();
         }
         public ICommand ComeBack => new DelegateCommand(o =>
         {
+            var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             window.ChangedGrid.Children.Clear();
             window.ChangedGrid.Children.Add(new MainPage());    
         });
@@ -105,11 +103,6 @@ namespace Booklist.ViewModel
                 PathPhoto = dlg.FileName;
             }
         });
-        private void ToMainPage()
-        {
-            window.ChangedGrid.Children.Clear();
-            window.ChangedGrid.Children.Add(new MainPage());
-        }
         public ICommand SaveBook => new DelegateCommand(o =>
         {
             if (!string.IsNullOrWhiteSpace(Author) || !string.IsNullOrWhiteSpace(BookTitle) || NumberOfPages > 0 || Mark > 0 || !string.IsNullOrWhiteSpace(Date))
@@ -119,7 +112,6 @@ namespace Booklist.ViewModel
                 NumberOfPages = Mark = 0;
                 PathPhoto = string.Empty;
                 MessageBox.Show("Успешно!");
-                ToMainPage();
             }
             else MessageBox.Show("Некорректные данные.");
         });

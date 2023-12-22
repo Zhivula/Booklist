@@ -35,7 +35,7 @@
             <EventTrigger RoutedEvent="Button.Click">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" 
                                          From="0"
                                          To="180"
                                          Duration="0:0:0.75"

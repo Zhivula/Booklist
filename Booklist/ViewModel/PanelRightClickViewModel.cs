@@ -48,16 +48,10 @@ namespace Booklist.ViewModel
             X = x;
             Y = y;
         }
-        private void ToMainPage()
-        {
-            window.ChangedGrid.Children.Clear();
-            window.ChangedGrid.Children.Add(new MainPage());
-        }
         public ICommand DeleteBook => new DelegateCommand(o =>
         {
             model.DeleteBook(id);
             MessageBox.Show("Успешно!");
-            ToMainPage();
         });
         public ICommand EditBook => new DelegateCommand(o =>
         {
