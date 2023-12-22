@@ -2,6 +2,7 @@
 using Booklist.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,9 @@ namespace Booklist.ViewModel
         private string countAuthors;
         private string theMostPopularAuthor;
         private string averageMark;
+        private string selectedItem;
+        private List<string> years;
+        private StatisticsModel model = new StatisticsModel();
 
         public string CountBooks
         {
@@ -64,16 +68,40 @@ namespace Booklist.ViewModel
                 OnPropertyChanged(nameof(AverageMark));
             }
         }
-
-        public StatisticsViewModel()
+        public string SelectedItem
         {
-            var model = new StatisticsModel();
-
+            get => selectedItem;
+            set
+            {
+                selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            }
+        }
+        public List<string> Years
+        {
+            get => years;
+            set
+            {
+                years = value;
+                OnPropertyChanged(nameof(Years));
+            }
+        }
+        
+        public StatisticsViewModel()
+        {          
             CountBooks = model.CountBooks;
             CountPages = model.CountPages;
             CountAuthors = model.CountAuthors;
             TheMostPopularAuthor = model.TheMostPopularAuthor;
             AverageMark = model.AverageMark;
+            Years = GetYears();
+            SelectedItem = Years.LastOrDefault();
+        }
+        private List<string> GetYears()
+        {
+            var list = model.Years;
+            list.Add("За всё время");
+            return list;
         }
         public ICommand ComeBack => new DelegateCommand(o =>
         {

@@ -19,9 +19,9 @@
                 </Button>
             </StackPanel>
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical">
-                <Grid Style="{DynamicResource LeftToRight}">
+                <Grid Style="{DynamicResource LeftToRight_Photo}">
                     <Grid.RenderTransform>
-                        <TranslateTransform X="-300" Y="0"/>
+                        <TranslateTransform X="-100" Y="0"/>
                     </Grid.RenderTransform>
                     <Border>
                         <Ellipse Height="200" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
@@ -40,7 +40,10 @@
                         </Ellipse.Fill>
                     </Ellipse>
                 </Grid>
-                <Button Margin="0 20 0 20" Style="{DynamicResource BaseButton}" Command="{Binding EditPhoto}">
+                <Button Margin="0 20 0 20" Style="{DynamicResource BottomToTop_Button}" Command="{Binding EditPhoto}">
+                    <Button.RenderTransform>
+                        <TranslateTransform X="0" Y="30"/>
+                    </Button.RenderTransform>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Foreground="White" Height="25" Width="25"/>
                         <TextBlock Text="Измениить фото" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -57,7 +60,10 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0">
+            <StackPanel Grid.Row="0" Style="{DynamicResource RightToLeft_LabelTextBox_ForAuthor}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="100" Y="0"/>
+                </StackPanel.RenderTransform>
                 <Label Content="Автор" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Author, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
@@ -69,7 +75,10 @@
                     </TextBox.Template>
                 </TextBox>
             </StackPanel>
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" Style="{DynamicResource RightToLeft_LabelTextBox_ForBookTitle}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="150" Y="0"/>
+                </StackPanel.RenderTransform>
                 <Label Content="Названиие" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding BookTitle, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
@@ -81,7 +90,10 @@
                     </TextBox.Template>
                 </TextBox>
             </StackPanel>
-            <StackPanel Grid.Row="2">
+            <StackPanel Grid.Row="2" Style="{DynamicResource RightToLeft_LabelTextBox_ForNumberOfPages}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="200" Y="0"/>
+                </StackPanel.RenderTransform>
                 <Label Content="Количество страниц" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding NumberOfPages, UpdateSourceTrigger=PropertyChanged}"  FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
@@ -93,7 +105,10 @@
                     </TextBox.Template>
                 </TextBox>
             </StackPanel>
-            <StackPanel Grid.Row="3">
+            <StackPanel Grid.Row="3" Style="{DynamicResource RightToLeft_LabelTextBox_ForMark}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="250" Y="0"/>
+                </StackPanel.RenderTransform>
                 <Label Content="Оценка" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Mark, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
@@ -105,7 +120,10 @@
                     </TextBox.Template>
                 </TextBox>
             </StackPanel>
-            <StackPanel Grid.Row="4">
+            <StackPanel Grid.Row="4" Style="{DynamicResource RightToLeft_LabelTextBox_ForDate}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="300" Y="0"/>
+                </StackPanel.RenderTransform>
                 <Label Content="Дата" Style="{DynamicResource LabelInput}"/>
                 <TextBox Text="{Binding Date, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Padding="3 0 0 0" Background="White" Height="26">
                     <TextBox.Template>
@@ -118,7 +136,10 @@
                 </TextBox>
             </StackPanel>
             <Grid Grid.Row="5">
-                <Button Margin="100 10 100 30" Style="{DynamicResource BaseButton}" Command="{Binding EditBook}">
+                <Button Margin="100 10 100 30" Style="{DynamicResource BottomToTop_Button}" Command="{Binding EditBook}">
+                    <Button.RenderTransform>
+                        <TranslateTransform X="0" Y="30"/>
+                    </Button.RenderTransform>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Foreground="White" Height="25" Width="25"/>
                         <TextBlock Text="Сохранить изменения" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>

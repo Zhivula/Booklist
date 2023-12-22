@@ -7,13 +7,14 @@
         xmlns:local="clr-namespace:Booklist"
         mc:Ignorable="d"
         Title="Booklist. Vladislav Zhivula" 
-        Height="600"
+        Height="700"
         Width="1000"         
         WindowStyle="None"
         ResizeMode="CanResize"
         Background="Transparent"
         AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Icon="/Booklist;component/Images/logo.png">
     <Border Background="{DynamicResource DarkBaseBrush}" CornerRadius="20">
         <Grid>
             <Grid.RowDefinitions>
@@ -34,7 +35,10 @@
                     </Button>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right">
-                    <Button Style="{DynamicResource MainWindowButton}" Margin="0 5 5 0" Background="Transparent" Command="{Binding CloseWindow}">
+                    <Button Style="{DynamicResource MainWindowCloseButton}" Margin="0 5 5 0" Background="Transparent" Command="{Binding CloseWindow}">
+                        <Button.RenderTransform>
+                            <RotateTransform Angle="0" CenterX="20" CenterY="20"/>
+                        </Button.RenderTransform>
                         <materialDesign:PackIcon Kind="Close" Foreground="White" Height="30" Width="30"/>
                     </Button>
                 </StackPanel>

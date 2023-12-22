@@ -9,23 +9,22 @@ namespace Booklist.ViewModel
 {
    public class MainWindowViewModel : INotifyPropertyChanged
     {
+        readonly MainWindow window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+
         public MainWindowViewModel()
         {
 
         }
         public ICommand CloseWindow => new DelegateCommand(o =>
         {
-            var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             window.Close();
         });
         public ICommand AddBook => new DelegateCommand(o =>
         {
-            var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             window.ChangedGrid.Children.Add(new AddBookView());
         });
         public ICommand Statistics => new DelegateCommand(o =>
         {
-            var window = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             window.ChangedGrid.Children.Add(new StatisticsView());
         });
         #region PropertyChanged
