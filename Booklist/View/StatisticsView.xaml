@@ -97,7 +97,10 @@
     <Grid Background="{DynamicResource BackgroundBrush}">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <Button Style="{DynamicResource ComeBackButton}" Background="White" Command="{Binding ComeBack}">
+                <Button Style="{DynamicResource ComeBackButton}" Background="Transparent" Command="{Binding ComeBack}">
+                    <Button.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" CenterX="20" CenterY="20"/>
+                    </Button.RenderTransform>
                     <materialDesign:PackIcon Kind="ArrowLeft" Foreground="{DynamicResource LightBaseBrush}" Height="40" Width="auto"/>
                 </Button>
             </StackPanel>
@@ -105,23 +108,38 @@
                 <TextBlock Text="Год: " Style="{DynamicResource InfoStatistics}" VerticalAlignment="Center"/>
                 <ComboBox ItemsSource="{Binding Years}" SelectedItem="{Binding SelectedItem}" Height="30" Width="auto" VerticalAlignment="Center"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
+            <StackPanel Orientation="Horizontal" Margin="20 10 0 10" Style="{DynamicResource ForCountBooks}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="0" Y="10"/>
+                </StackPanel.RenderTransform>
                 <TextBlock Text="Количество прочитанных произведений:" Style="{DynamicResource InfoStatistics}"/>
                 <TextBlock Text="{Binding CountBooks}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
+            <StackPanel Orientation="Horizontal" Margin="20 10 0 10" Style="{DynamicResource ForCountPages}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="0" Y="10"/>
+                </StackPanel.RenderTransform>
                 <TextBlock Text="Количество прочитанных страниц:" Style="{DynamicResource InfoStatistics}"/>
                 <TextBlock Text="{Binding CountPages}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
+            <StackPanel Orientation="Horizontal" Margin="20 10 0 10" Style="{DynamicResource ForCountAuthors}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="0" Y="10"/>
+                </StackPanel.RenderTransform>
                 <TextBlock Text="Количество авторов:"  Style="{DynamicResource InfoStatistics}"/>
                 <TextBlock Text="{Binding CountAuthors}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
+            <StackPanel Orientation="Horizontal" Margin="20 10 0 10" Style="{DynamicResource ForTheMostPopularAuthor}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="0" Y="10"/>
+                </StackPanel.RenderTransform>
                 <TextBlock Text="Самый читаемый автор:" Style="{DynamicResource InfoStatistics}"/>
                 <TextBlock Text="{Binding TheMostPopularAuthor}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="20 10 0 10">
+            <StackPanel Orientation="Horizontal" Margin="20 10 0 10" Style="{DynamicResource ForAverageMark}">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform X="0" Y="10"/>
+                </StackPanel.RenderTransform>
                 <TextBlock Text="Средняя оценка:" Style="{DynamicResource InfoStatistics}"/>
                 <TextBlock Text="{Binding AverageMark}" Style="{DynamicResource InfoStatistics}"/>
             </StackPanel>

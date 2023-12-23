@@ -89,6 +89,7 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PanelRightClickViewModel.cs" />
     <Compile Include="ViewModel\StatisticsViewModel.cs" />
+    <Compile Include="ViewModel\WindowSuccessfullyViewModel.cs" />
     <Compile Include="View\AddBookView.xaml.cs">
       <DependentUpon>AddBookView.xaml</DependentUpon>
     </Compile>
@@ -101,6 +102,9 @@
     <Compile Include="View\StatisticsView.xaml.cs">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WindowSuccessfully.xaml.cs">
+      <DependentUpon>WindowSuccessfully.xaml</DependentUpon>
+    </Compile>
     <Page Include="Animations\AddBookItemsAnimation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +114,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Animations\CloseWindowAnimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Animations\EllipseAnimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Animations\StatisticsAnimation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StatisticsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowSuccessfully.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

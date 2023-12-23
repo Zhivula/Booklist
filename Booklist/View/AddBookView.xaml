@@ -14,7 +14,10 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <StackPanel Orientation="Horizontal">
-                <Button Style="{DynamicResource ComeBackButton}" Background="White" Command="{Binding ComeBack}">
+                <Button Style="{DynamicResource ComeBackButton}" Background="Transparent" Command="{Binding ComeBack}">
+                    <Button.RenderTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" CenterX="20" CenterY="20"/>
+                    </Button.RenderTransform>
                     <materialDesign:PackIcon Kind="ArrowLeft" Foreground="{DynamicResource LightBaseBrush}" Height="40" Width="auto"/>
                 </Button>
             </StackPanel>

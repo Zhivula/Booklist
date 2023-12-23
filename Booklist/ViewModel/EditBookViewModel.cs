@@ -125,10 +125,10 @@ namespace Booklist.ViewModel
                 Author = BookTitle = string.Empty;
                 NumberOfPages = Mark = 0;
                 PathPhoto = string.Empty;
-                MessageBox.Show("Успешно!");
+                WindowSuccessfullyViewModel.Successfully();
                 ToMainPage();
             }
-            else MessageBox.Show("Некорректные данные.");
+            else WindowSuccessfullyViewModel.NotSuccessfully();
         });
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

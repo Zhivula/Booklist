@@ -56,7 +56,7 @@ namespace Booklist.ViewModel
         public ICommand DeleteBook => new DelegateCommand(o =>
         {
             model.DeleteBook(id);
-            MessageBox.Show("Успешно!");
+            WindowSuccessfullyViewModel.Successfully();
             ToMainPage();
         });
         public ICommand EditBook => new DelegateCommand(o =>

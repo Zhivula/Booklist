@@ -74,24 +74,30 @@
                                     <ColumnDefinition Width="160"/>
                                     <ColumnDefinition Width="115"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
+                                <Grid Grid.Column="0" Panel.ZIndex="1">
                                     <Border>
-                                        <Ellipse Height="120" Width="120" Margin="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
+                                        <Ellipse Style="{DynamicResource EllipseAnimation}" Height="120" Width="120" Margin="0 5 0 10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
                                             <Ellipse.Fill>
                                                 <SolidColorBrush Color="{DynamicResource UltraLightBaseColor}"/>
                                             </Ellipse.Fill>
+                                            <Ellipse.RenderTransform>
+                                                <ScaleTransform ScaleX="1" ScaleY="1" CenterX="60" CenterY="60"/>
+                                            </Ellipse.RenderTransform>
                                         </Ellipse>
                                         <Border.Effect>
                                             <DropShadowEffect ShadowDepth="5" Direction="280" Color="Black" Opacity="0.5"  BlurRadius="12.0" />
                                         </Border.Effect>
                                     </Border>
-                                    <Ellipse Height="120" Width="120" Margin="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
+                                    <Ellipse Style="{DynamicResource EllipseAnimation}" Height="120" Width="120" Margin="0 5 0 10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{DynamicResource DarkBaseBrush}">
                                         <Ellipse.Fill>
                                             <ImageBrush ImageSource="{Binding PathPhoto}" Stretch="UniformToFill"/>
                                         </Ellipse.Fill>
+                                        <Ellipse.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" CenterX="60" CenterY="60"/>
+                                        </Ellipse.RenderTransform>
                                     </Ellipse>
                                 </Grid>
-                                <WrapPanel Grid.Column="1" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <WrapPanel Panel.ZIndex="0" Grid.Column="1" Orientation="Vertical" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <Border Background="#FF7518" CornerRadius="5" HorizontalAlignment="Left" Padding="10 2 10 2">
                                         <TextBlock TextWrapping="Wrap"
                                                Text="{Binding Path=Name}"

@@ -75,6 +75,7 @@ namespace Booklist.ViewModel
             {
                 selectedItem = value;
                 OnPropertyChanged(nameof(SelectedItem));
+                SelectedItemChanged(value);
             }
         }
         public List<string> Years
@@ -89,11 +90,6 @@ namespace Booklist.ViewModel
         
         public StatisticsViewModel()
         {          
-            CountBooks = model.CountBooks;
-            CountPages = model.CountPages;
-            CountAuthors = model.CountAuthors;
-            TheMostPopularAuthor = model.TheMostPopularAuthor;
-            AverageMark = model.AverageMark;
             Years = GetYears();
             SelectedItem = Years.LastOrDefault();
         }
@@ -102,6 +98,25 @@ namespace Booklist.ViewModel
             var list = model.Years;
             list.Add("За всё время");
             return list;
+        }
+        private void SelectedItemChanged(string item)
+        {
+            if(item == "За всё время")
+            {
+                CountBooks = model.CountBooks;
+                CountPages = model.CountPages;
+                CountAuthors = model.CountAuthors;
+                TheMostPopularAuthor = model.TheMostPopularAuthor;
+                AverageMark = model.AverageMark;
+            }
+            else
+            {
+                CountBooks = model.GetCountBooks(item);
+                CountPages = model.GetCountPages(item);
+                CountAuthors = model.GetCountAuthors(item);               
+                AverageMark = model.GetAverageMark(item);
+                TheMostPopularAuthor = model.GetTheMostPopularAuthor(item);
+            }
         }
         public ICommand ComeBack => new DelegateCommand(o =>
         {
